@@ -15,7 +15,7 @@ class BruteForceDiffAlgo:
     image_2: NDArray
     threshold: float # range [0, 255] -> these are the meaningful diffs. HYPERPARAMETER.
 
-    def __init__(self, image_1: NDArray, image_2: NDArray, threshold: float = 30.):
+    def __init__(self, image_1: NDArray, image_2: NDArray, threshold: float = 0.):
         self.image_1 = image_1
         self.image_2 = image_2
         self.threshold = threshold
@@ -63,6 +63,7 @@ if __name__ == "__main__":
     corrupted_tiles_idx = BruteForceDiffAlgo(og_bytes, corrupted_bytes).exec()
     elapsed_time = time.perf_counter() - start_time
 
+    # 0.024843708029948175 second
     print(f"took {elapsed_time} seconds to calculate diff using the brute-force algorithm.")
 
     masked_corrupted_image = photoshop.create_mask_over_tiles(corrupted_image, corrupted_tiles_idx)
