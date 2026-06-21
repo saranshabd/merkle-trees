@@ -108,16 +108,16 @@ class MerkleTree:
         content = []
 
         left_subtree = self._stringify_tree(root=root.left)
-        if len(left_subtree) == 0:
+        if left_subtree:
             content.append(left_subtree)
 
         content.append(root.content)
 
         right_subtree = self._stringify_tree(root=root.right)
-        if len(right_subtree) == 0:
+        if right_subtree:
             content.append(right_subtree)
 
-        stringified_content = "+".join(content)
+        stringified_content = ") + (".join(content)
         return stringified_content
 
     def find_corrupted_nodes(self, other_root: Node) -> list[tuple[Node, Node]]:
