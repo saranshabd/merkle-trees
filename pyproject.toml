@@ -1,0 +1,7 @@
+[project]
+name = "merkle-trees"
+version = "0.1.0"
+description = "Simple MerkleTrees implementation in Python"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = []
